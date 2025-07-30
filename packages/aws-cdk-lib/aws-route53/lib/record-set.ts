@@ -356,6 +356,8 @@ export class RecordSet extends Resource implements IRecordSet {
 
   constructor(scope: Construct, id: string, props: RecordSetProps) {
     super(scope, id);
+    console.log('hello1');
+    Annotations.of(this).addWarningV2('@aws-cdk/aws-route53:test', 'check');
     // Enhanced CDK Analytics Telemetry
     addConstructMetadata(this, props);
 
@@ -562,6 +564,8 @@ export class ARecord extends RecordSet {
   }
 
   constructor(scope: Construct, id: string, props: ARecordProps) {
+    console.log('hello2');
+    // Annotations.of(this).addWarningV2('@aws-cdk/aws-route53:test1', 'test1');
     super(scope, id, {
       ...props,
       recordType: RecordType.A,
